@@ -1,0 +1,13 @@
+const app=require("express")()
+const bodyparse=require("body-parser")
+app.use(bodyparse.json())
+
+const signup=require("./router/createUser")
+const dele=require("./router/delete")
+const finduser=require("./router/findUser")
+const updateus=require("./router/updateuser")
+app.use("/",signup)
+app.use("/",finduser)
+app.use("/",dele)
+app.use("/",updateus)
+app.listen(3001,()=>console.log("server started"))
